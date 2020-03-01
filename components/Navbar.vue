@@ -1,9 +1,7 @@
 <template>
   <div class="section-nav">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <nuxt-link tag="h2" to="/" class="nav-logo">
-        Nuxt Store
-      </nuxt-link>
+      <img class="nav-logo" src="../assets/img/logo.png" alt="">
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav font-weight-bold text-lg">
           <li class="nav-item">
@@ -52,25 +50,22 @@ nuxt-link {
 
 .nav-logo {
   position: absolute;
-  left: calc(90% / 2);
+  left: calc(85% / 2);
   top: 0;
   font-size: 30px;
   text-decoration: none;
   cursor: pointer;
   transition: all .3s;
-  margin-top: 5px;
-}
-.nav-logo:hover {
-  color: black;
-  border: 1px solid black;
-  border-radius: 10px;
+  margin-top: 20px;
+  background-color: black;
+  padding: 5px;
 }
 
 ul > li {
   font-size: 20px;
 }
   nav {
-  background: linear-gradient(to right top, #d13333, #e7b23f, #d8db26, #37fd62, #4ad2f5, #4657ef, #bf57e8);
+  background: linear-gradient(to right top, #FFB304, #FFC1B5, #FE8A80, #C3FCF2, #C2554F, #DFE0DF);
   background-size: 600% 600%;
   -webkit-animation: AnimationName 29s ease infinite;
   -moz-animation: AnimationName 29s ease infinite;

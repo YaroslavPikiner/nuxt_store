@@ -5,7 +5,7 @@
       <div v-for="card in 6" :key="card" class="card" style="width: 18rem;">
         <img
           src="https://images.unsplash.com/photo-1500856311637-fc0249e33e4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-          class="card-img-top"
+          class="card-img-top card-img"
           alt
         >
         <div class="card-body">
@@ -44,10 +44,10 @@ section {
   justify-content: center;
   flex-wrap: wrap;
 }
-img {
+.card-img {
   transition: all 0.3s;
 }
-img:hover {
+.card-img:hover {
   transform: scale(1.05);
 }
 

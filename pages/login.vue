@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container login">
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -16,3 +16,9 @@
     </form>
   </div>
 </template>
+
+<style>
+ .login {
+   margin-top: 60px;
+ }
+</style>
