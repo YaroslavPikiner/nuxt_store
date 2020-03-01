@@ -5,18 +5,18 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav font-weight-bold text-lg">
           <li class="nav-item">
-            <nuxt-link exact active-class="active" to="/" class="nav-link">
+            <nuxt-link exact active-class="active nav-link" to="/" class="navbar-link nav-link">
               Home
             </nuxt-link>
             <span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
-            <nuxt-link active-class="active" to="/articles" class="nav-link">
+            <nuxt-link active-class="active" to="/articles" class="nav-link navbar-link">
               Articles
             </nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link active-class="active" to="/cards" class="nav-link">
+            <nuxt-link active-class="active" to="/cards" class="nav-link navbar-link">
               Cards
             </nuxt-link>
           </li>
@@ -25,7 +25,7 @@
       <nuxt-link
         active-class="active"
         to="/login"
-        class="nav-link text-dark font-weight-bold"
+        class="navbar-link nav-link font-weight-bold"
       >
         Login
       </nuxt-link>
@@ -61,9 +61,11 @@ nuxt-link {
   padding: 5px;
 }
 
-ul > li {
+.navbar-link {
   font-size: 20px;
+  color:#000;
 }
+
   nav {
   background: linear-gradient(to right top, #FFB304, #FFC1B5, #FE8A80, #C3FCF2, #C2554F, #DFE0DF);
   background-size: 600% 600%;

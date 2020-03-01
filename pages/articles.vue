@@ -1,0 +1,107 @@
+<template>
+  <section>
+    <h1 class="article-title">
+      From the blog
+    </h1>
+    <div class="article">
+      <div v-for="article in 6" :key="article" class="article-body">
+        <img class="article-img" src="https://images.unsplash.com/photo-1583038115396-79f8806d2242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+        <p class="article-title">
+          Lorem ipsum dolor sit amet.
+        </p>
+        <div class="article-content">
+          <h3 class="article-text">
+            Lorem ipsum, dolor sit amet consectetur
+          </h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?</p>
+          <div class="article-writer">
+            <img src="https://r1.ilikewallpaper.net/ipad-wallpapers/download/18993/brunette-woman-ipad-wallpaper-ilikewallpaper_com.jpg" alt="" class="writer-img">
+            <div class="writer-title">
+              <p class="writter-name">
+                Jessica White
+              </p>
+              <p class="wrtitter-job">
+                Desinger
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+
+export default {
+  components: {
+  }
+}
+</script>
+
+<style>
+  .article {
+    margin: 60px auto;
+    width: 900px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+  }
+  .article-title {
+    text-align: center;
+  }
+  .article-body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    flex-wrap: nowrap;
+  }
+  .article-text {
+    width: 100%;
+  }
+
+  .article-content:hover {
+    opacity: 1;
+  }
+
+  .article-content {
+    position: absolute;
+    top: 0;
+    border: 1px solid white;
+    width: 300px;
+    height: 300px;
+    color: white;
+    background-color: rgba(0, 240, 180, 0.986);
+    opacity: 0;
+    transition: all .4s;
+    cursor: pointer;
+  }
+
+  .article-img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .article-writer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .writer-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+
+  .writer-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+</style>
