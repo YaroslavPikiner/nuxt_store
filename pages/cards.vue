@@ -33,12 +33,16 @@
 export default {}
 </script>
 
-<style scoped>
+<style>
+
+section {
+  margin-top: 60px;
+}
+
 .card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 30px;
 }
 img {
   transition: all 0.3s;
