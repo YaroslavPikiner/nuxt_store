@@ -2,11 +2,10 @@
   <section class="container">
     <h1>Card Store</h1>
     <div class="card-container">
-      <div v-for="card in cards" :key="card.id" class="card" style="width: 18rem;">
+      <div v-for="(card, index) in cards" :key="card.id" class="card" style="width: 18rem;">
         <img
-          v-for="image in images"
-          :key="image.id"
-          :src="image.url"
+          v-if="images[index]"
+          :src="images[index].url"
           class="card-img-top card-img"
           alt
         >
@@ -17,7 +16,7 @@
           <p
             class="card-text"
           >
-            {{ toCut(card.title, 30) }}
+            {{ toCut(card.body, 30) }}
           </p>
           <button
             class="btn btn-primary"
@@ -33,13 +32,10 @@
 
 <script>
 export default {
-  data: () => ({
-    cards: [],
-    images: []
-  }),
-  async mounted () {
-    this.cards = await this.$axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
-    this.images = await this.$axios.$get('https://jsonplaceholder.typicode.com/photos?_limit=1')
+  async asyncData ({ $axios }) {
+    const cards = await $axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
+    const images = await $axios.$get('https://jsonplaceholder.typicode.com/photos?_limit=15')
+    return { cards, images }
   },
   methods: {
     toCard (card) {

@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1 class="article-title">
-      From the blog
+      {{ pageName }}
     </h1>
     <div class="article">
       <div v-for="article in 6" :key="article" class="article-body">
@@ -14,7 +14,9 @@
           <h3 class="article-text">
             Lorem ipsum, dolor sit amet consectetur
           </h3>
-          <p class="article-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?</p>
+          <p class="article-subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?
+          </p>
           <div class="article-writer">
             <img src="https://r1.ilikewallpaper.net/ipad-wallpapers/download/18993/brunette-woman-ipad-wallpaper-ilikewallpaper_com.jpg" alt="" class="writer-img">
             <div class="writer-title">
@@ -35,6 +37,15 @@
 <script>
 
 export default {
+  async asyncData ({ $axios }) {
+    const articles = await $axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
+    const images = await $axios.$get('https://jsonplaceholder.typicode.com/photos?_limit=1')
+    const users = await $axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
+    return { articles, images, users }
+  },
+  data: () => ({
+    pageName: 'From the blog'
+  }),
   methods: {
     articlesLink (article) {
       this.$router.push('/articles/' + article)
