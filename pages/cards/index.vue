@@ -2,7 +2,7 @@
   <section class="container">
     <h1>Card Store</h1>
     <div class="card-container">
-      <div v-for="card in 6" :key="card" class="card" style="width: 18rem;">
+      <div v-for="card in 6" :key="card" class="card" style="width: 18rem;" @click.prevent="toCard(card)">
         <img
           src="https://images.unsplash.com/photo-1500856311637-fc0249e33e4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
           class="card-img-top"
@@ -30,7 +30,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    toCard (card) {
+      this.$router.push('/cards/' + card)
+    }
+  }
+}
 </script>
 
 <style>
