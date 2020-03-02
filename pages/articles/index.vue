@@ -6,15 +6,16 @@
     <div class="article">
       <div v-for="article in 6" :key="article" class="article-body">
         <img class="article-img" src="https://images.unsplash.com/photo-1583038115396-79f8806d2242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
-        <p class="article-title">
+        <h5 class="article-title">
           Lorem ipsum dolor sit amet.
-        </p>
-        <div class="article-content">
+        </h5>
+        <span class="text-muted">Jessica White</span>
+        <div class="article-content" @click.prevent="articlesLink(article)">
           <h3 class="article-text">
             Lorem ipsum, dolor sit amet consectetur
           </h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?</p>
-          <div class="article-writer" @click.prevent="articlesLink(article)">
+          <p class="article-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?</p>
+          <div class="article-writer">
             <img src="https://r1.ilikewallpaper.net/ipad-wallpapers/download/18993/brunette-woman-ipad-wallpaper-ilikewallpaper_com.jpg" alt="" class="writer-img">
             <div class="writer-title">
               <p class="writter-name">
@@ -53,6 +54,8 @@ export default {
   }
   .article-title {
     text-align: center;
+    margin-top: 10px;
+    text-decoration: bold;
   }
   .article-body {
     position: relative;
@@ -65,6 +68,13 @@ export default {
   }
   .article-text {
     width: 100%;
+    padding: 20px;
+    color: #000;
+  }
+
+  .article-subtitle {
+    padding: 20px 20px 0 20px;
+    color: #000;
   }
 
   .article-content:hover {
@@ -77,8 +87,7 @@ export default {
     border: 1px solid white;
     width: 300px;
     height: 300px;
-    color: white;
-    background-color: rgba(0, 240, 180, 0.986);
+    background-color: rgba(255, 255, 255, 0.986);
     opacity: 0;
     transition: all .4s;
     cursor: pointer;
@@ -90,21 +99,27 @@ export default {
   }
 
   .article-writer {
+    margin: 20px 0 0 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+  }
+  .writer-title {
+    display: block;
+    margin: 10px 0 0 20px;
+    color: #000;
   }
 
   .writer-img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
   }
 
-  .writer-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .writter-name {
+    margin: 0;
   }
 
+  .wrtitter-job {
+    margin: 0;
+  }
 </style>
