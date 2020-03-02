@@ -14,7 +14,7 @@
             Lorem ipsum, dolor sit amet consectetur
           </h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?</p>
-          <div class="article-writer">
+          <div class="article-writer" @click.prevent="articlesLink(article)">
             <img src="https://r1.ilikewallpaper.net/ipad-wallpapers/download/18993/brunette-woman-ipad-wallpaper-ilikewallpaper_com.jpg" alt="" class="writer-img">
             <div class="writer-title">
               <p class="writter-name">
@@ -34,7 +34,10 @@
 <script>
 
 export default {
-  components: {
+  methods: {
+    articlesLink (article) {
+      this.$router.push('/articles/' + article)
+    }
   }
 }
 </script>
