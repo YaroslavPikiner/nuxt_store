@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container">
     <h1> {{ card.title }} </h1>
   </section>
 </template>

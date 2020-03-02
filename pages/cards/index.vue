@@ -4,7 +4,9 @@
     <div class="card-container">
       <div v-for="card in cards" :key="card.id" class="card" style="width: 18rem;">
         <img
-          src="https://images.unsplash.com/photo-1500856311637-fc0249e33e4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+          v-for="image in images"
+          :key="image.id"
+          :src="image.url"
           class="card-img-top card-img"
           alt
         >
@@ -15,7 +17,7 @@
           <p
             class="card-text"
           >
-            {{ toCut(card.body, 30) }}
+            {{ toCut(card.title, 30) }}
           </p>
           <button
             class="btn btn-primary"
@@ -32,10 +34,12 @@
 <script>
 export default {
   data: () => ({
-    cards: []
+    cards: [],
+    images: []
   }),
   async mounted () {
-    this.cards = await this.$axios.$get('https://jsonplaceholder.typicode.com/posts')
+    this.cards = await this.$axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
+    this.images = await this.$axios.$get('https://jsonplaceholder.typicode.com/photos?_limit=1')
   },
   methods: {
     toCard (card) {
