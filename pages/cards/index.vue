@@ -2,7 +2,7 @@
   <section class="container">
     <h1>Card Store</h1>
     <div class="card-container">
-      <div v-for="card in 6" :key="card" class="card" style="width: 18rem;">
+      <div v-for="card in cards" :key="card.id" class="card" style="width: 18rem;">
         <img
           src="https://images.unsplash.com/photo-1500856311637-fc0249e33e4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
           class="card-img-top card-img"
@@ -10,12 +10,12 @@
         >
         <div class="card-body">
           <h5 class="card-title">
-            {{ card }}
+            {{ toCut(card.title, 10) }}
           </h5>
           <p
             class="card-text"
           >
-            Some quick example text to build on the card title and make up the bulk of the card's content.
+            {{ toCut(card.body, 30) }}
           </p>
           <button
             class="btn btn-primary"
@@ -31,9 +31,18 @@
 
 <script>
 export default {
+  data: () => ({
+    cards: []
+  }),
+  async mounted () {
+    this.cards = await this.$axios.$get('https://jsonplaceholder.typicode.com/posts')
+  },
   methods: {
     toCard (card) {
-      this.$router.push('/cards/' + card)
+      this.$router.push('/cards/' + card.id)
+    },
+    toCut (element, num) {
+      return element.substr(0, num)
     }
   }
 }
