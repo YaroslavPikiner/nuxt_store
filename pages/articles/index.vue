@@ -4,19 +4,19 @@
       {{ pageName }}
     </h1>
     <div class="article">
-      <div v-for="article in 6" :key="article" class="article-body">
+      <div v-for="article in articles" :key="article.id" class="article-body">
         <img class="article-img" src="https://images.unsplash.com/photo-1583038115396-79f8806d2242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
         <h5 class="article-title">
-          Lorem ipsum dolor sit amet.
+          {{ article.title }}
         </h5>
         <span class="text-muted">Jessica White</span>
         <div class="article-content" @click.prevent="articlesLink(article)">
           <h3 class="article-text">
-            Lorem ipsum, dolor sit amet consectetur
+            {{ article.body }}
           </h3>
           <p class="article-subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, blanditiis?
-          </p>
+            {{ article.title }}
+          </p> 
           <div class="article-writer">
             <img src="https://r1.ilikewallpaper.net/ipad-wallpapers/download/18993/brunette-woman-ipad-wallpaper-ilikewallpaper_com.jpg" alt="" class="writer-img">
             <div class="writer-title">
