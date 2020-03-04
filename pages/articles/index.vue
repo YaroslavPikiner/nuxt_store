@@ -4,27 +4,38 @@
       {{ pageName }}
     </h1>
     <div class="article">
-      <div v-for="article in articles" :key="article.id" class="article-body">
-        <img class="article-img" src="https://images.unsplash.com/photo-1583038115396-79f8806d2242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+      <div v-for="(article, index) in articles" :key="article.id" class="article-body">
+        <img
+          :src="images[index].url"
+          class="card-img-top card-img"
+          alt
+        >
         <h5 class="article-title">
-          {{ article.title }}
+          {{ toCut(article.title, 20) }}
         </h5>
         <span class="text-muted">Jessica White</span>
-        <div class="article-content" @click.prevent="articlesLink(article)">
+        <div class="article-content" v-if="users[index]" @click.prevent="articlesLink(article)">
           <h3 class="article-text">
-            {{ article.body }}
+            {{ toCut(article.title, 25) }}
           </h3>
           <p class="article-subtitle">
-            {{ article.title }}
-          </p> 
+            {{ toCut(article.body, 40) }}
+          </p>
           <div class="article-writer">
-            <img src="https://r1.ilikewallpaper.net/ipad-wallpapers/download/18993/brunette-woman-ipad-wallpaper-ilikewallpaper_com.jpg" alt="" class="writer-img">
+            <img
+              v-if="images[index]"
+              :src="images[index].url"
+              class="writer-img"
+              alt
+            >
             <div class="writer-title">
-              <p class="writter-name">
-                Jessica White
+              <p
+                class="writter-name"
+              >
+                {{ users[index].username }}
               </p>
               <p class="wrtitter-job">
-                Desinger
+                {{ users[index].company.name }}
               </p>
             </div>
           </div>
@@ -39,8 +50,8 @@
 export default {
   async asyncData ({ $axios }) {
     const articles = await $axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
-    const images = await $axios.$get('https://jsonplaceholder.typicode.com/photos?_limit=1')
-    const users = await $axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=15')
+    const images = await $axios.$get('https://jsonplaceholder.typicode.com/photos?_limit=15')
+    const users = await $axios.$get('https://jsonplaceholder.typicode.com/users')
     return { articles, images, users }
   },
   data: () => ({
@@ -48,7 +59,10 @@ export default {
   }),
   methods: {
     articlesLink (article) {
-      this.$router.push('/articles/' + article)
+      this.$router.push('/articles/' + article.id)
+    },
+    toCut (element, num) {
+      return element.substr(0, num)
     }
   }
 }
@@ -112,6 +126,8 @@ export default {
   .article-writer {
     margin: 20px 0 0 20px;
     display: flex;
+    position: absolute;
+    bottom: 10px;
     justify-content: flex-start;
   }
   .writer-title {
@@ -128,6 +144,8 @@ export default {
 
   .writter-name {
     margin: 0;
+    width: 100px;
+    height: auto;
   }
 
   .wrtitter-job {

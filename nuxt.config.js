@@ -42,8 +42,6 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
-    '@/node_modules/node-fetch',
-    '@/node_modules/axios'
   ],
   /*
   ** Build configuration
