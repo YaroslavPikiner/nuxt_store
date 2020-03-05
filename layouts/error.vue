@@ -68,35 +68,35 @@
       <use
         xlink:href="#s-text"
         class="text"
-      ></use>
+      />
       <use
         xlink:href="#s-text"
         class="text"
-      ></use>
+      />
       <use
         xlink:href="#s-text"
         class="text"
-      ></use>
+      />
       <use
         xlink:href="#s-text"
         class="text"
-      ></use>
+      />
       <use
-      xlink:href="#s-text"
-      class="text"
-      ></use>
+        xlink:href="#s-text"
+        class="text"
+      />
       <use
-      xlink:href="#v-text"
-      class="text1"
-      ></use>
+        xlink:href="#v-text"
+        class="text1"
+      />
       <use
-      xlink:href="#v-text"
-      class="text1"
-      ></use>
+        xlink:href="#v-text"
+        class="text1"
+      />
       <use
-      xlink:href="#v-text"
-      class="text1"
-      ></use>
+        xlink:href="#v-text"
+        class="text1"
+      />
       <use id="g-usetag" xlink:href="#g-text" class="text2" style="fill: url(#GPattern)" />
     </svg>
   </div>
