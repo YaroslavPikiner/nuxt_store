@@ -14,7 +14,7 @@
           {{ toCut(article.title, 20) }}
         </h5>
         <span class="text-muted">Jessica White</span>
-        <div class="article-content" v-if="users[index]" @click.prevent="articlesLink(article)">
+        <div v-if="users[index]" class="article-content" @click.prevent="articlesLink(article)">
           <h3 class="article-text">
             {{ toCut(article.title, 25) }}
           </h3>
