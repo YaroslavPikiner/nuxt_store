@@ -1,7 +1,7 @@
 <template>
   <section class="container id-article">
-    <h1> {{ articles.title }} </h1>
     <img :src="images.url" alt="">
+    <h1> {{ articles.title }} </h1>
     <p class="id-body"> {{ articles.body }} </p>
   </section>
 </template>
@@ -27,6 +27,11 @@ export default {
 
 .id-article > h1 {
   margin-bottom: 40px;
+}
+
+.id-article > img {
+  width: 100%;
+  height: 200px;
 }
 
 .id-article > h1::first-letter {
