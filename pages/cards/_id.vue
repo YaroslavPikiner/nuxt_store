@@ -1,8 +1,10 @@
 <template>
   <section class="container id-cards">
     <h1> {{ cards.title }} </h1>
-    <img :src="images.url" alt="">
-    <p class="id-body"> {{ cards.body }} </p>
+    <div class="wrapper">
+      <img :src="images.url" alt="">
+      <p class="id-body"> {{ cards.body + cards.body }} </p>
+    </div>
   </section>
 </template>
 
@@ -17,6 +19,12 @@ export default {
 </script>
 
 <style>
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
 
 .id-cards {
   display: flex;
@@ -37,7 +45,10 @@ export default {
   text-transform: uppercase;
 }
 
-.id-cards > img {
+.wrapper > img {
+  width: 500px;
+  height: 500px;
   margin-bottom: 40px;
+  margin-right: 20px;
 }
 </style>
