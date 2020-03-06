@@ -51,7 +51,7 @@ nuxt-link {
 .nav-logo {
   position: absolute;
   left: calc(85% / 2);
-  top: 0;
+  top: 20px;
   font-size: 30px;
   text-decoration: none;
   cursor: pointer;
@@ -72,7 +72,7 @@ nuxt-link {
   -webkit-animation: AnimationName 29s ease infinite;
   -moz-animation: AnimationName 29s ease infinite;
   animation: AnimationName 29s ease infinite;
-  height: 100px;
+  height: 150px;
 }
 
 @-webkit-keyframes AnimationName {
