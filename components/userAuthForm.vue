@@ -33,12 +33,11 @@
 import validations from '@/utils/validations.js'
 
 export default {
-  props: ['submitForm', 'buttonText'],
+  props: ['hasName', 'submitForm', 'buttonText'],
   data () {
     return {
       valid: false,
       showPassword: false,
-      hasName: false,
       userInfo: {
         email: '',
         password: ''
