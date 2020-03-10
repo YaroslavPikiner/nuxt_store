@@ -13,7 +13,7 @@ export default {
     UserAuthForm
   },
   methods: {
-    loginUser () {
+    loginUser (logininfo) {
       alert('You are click')
     }
   }
