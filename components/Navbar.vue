@@ -22,28 +22,14 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="d-flex">
-        <nuxt-link
-          active-class="active"
-          to="/login"
-          class="navbar-link nav-link font-weight-bold"
-        >
-          Login
-        </nuxt-link>
-        <nuxt-link
-          active-class="active"
-          to="/register"
-          class="navbar-link nav-link font-weight-bold"
-        >
-          Register
-        </nuxt-link>
-      </div> -->
+
       <div v-if="$auth.loggedIn" class="d-flex">
         <!-- username -->
         {{ $auth.user.email }}
         <!-- logout btn -->
         <nuxt-link
           class="navbar-link nav-link font-weight-bold"
+          @click="$auth.logout()"
         >
           Logout
         </nuxt-link>

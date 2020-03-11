@@ -1,12 +1,12 @@
 <template>
   <div class="container login">
     <h1> Register </h1>
-    <UserAuthForm buttonText="Register" :submitForm="registerUser" :hasName="true" />
+    <UserAuthForm button-text="Register" :submit-form="registerUser" :has-name="true" />
   </div>
 </template>
 
 <script>
-import UserAuthForm from '@/components/UserAuthForm.vue'
+import UserAuthForm from '@/components/UserAuthForm'
 
 export default {
   components: {

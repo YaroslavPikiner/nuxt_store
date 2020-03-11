@@ -6,11 +6,3 @@ export const getData = async function(url, axios) {
     included: response.data.included
   }
 }
-
-export const deserializeVideos = function(videos) {
-  videos.forEach(v => {
-    if(v.attributes.published_at) {
-      v.attributes.published_at = new Date(v.attributes.published_at)
-    }
-  });
-}
