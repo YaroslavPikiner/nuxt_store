@@ -16,46 +16,28 @@
             </nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link active-class="active" to="/cards" class="nav-link navbar-link">
+            <nuxt-link v-if="$auth.loggedIn" active-class="active" to="/cards" class="nav-link navbar-link">
               Cards
             </nuxt-link>
           </li>
         </ul>
       </div>
-
-      <div v-if="$auth.loggedIn" class="d-flex">
-        <!-- username -->
-        {{ $auth.user.email }}
-        <!-- logout btn -->
-        <nuxt-link
-          class="navbar-link nav-link font-weight-bold"
-          @click="$auth.logout()"
-        >
-          Logout
-        </nuxt-link>
-      </div>
-      <div v-else class="d-flex">
-        <nuxt-link
-          active-class="active"
-          to="/login"
-          class="navbar-link nav-link font-weight-bold"
-        >
-          Login
-        </nuxt-link>
-        <nuxt-link
-          active-class="active"
-          to="/register"
-          class="navbar-link nav-link font-weight-bold"
-        >
-          Register
-        </nuxt-link>
+      <div>
+        <a v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</a>
+        <a v-else @click="$auth.loginWith('auth0')">Sign In</a>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    logIn () {
+      this.$auth.loginWith('auth0')
+    }
+  }
+}
 </script>
 
 <style>

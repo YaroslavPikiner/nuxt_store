@@ -13,13 +13,7 @@ export default {
     UserAuthForm
   },
   methods: {
-    async loginUser (loginInfo) {
-      try {
-        const response = await this.$auth.loginWith('local', { data: loginInfo })
-        console.log(response)
-      } catch (err) {
-        console.log(err)
-      }
+    loginUser () {
     }
   }
 }

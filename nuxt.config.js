@@ -55,25 +55,17 @@ export default {
     }
   },
 
-  axios: {
-    baseURL: 'http://localhost:3000/api'
-  },
-
-  server: {
-    port: 3000
-  },
-
   auth: {
+    redirect: {
+      login: '/', // redirect user when not connected
+      callback: '/auth/signed-in'
+    },
     strategies: {
-      local: {
-        endpoints: {
-          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
-          logout: { url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
-        },
-        tokenRequired: true,
-        tokenType: 'bearer'
+      local: false,
+      auth0: {
+        domain: 'dev-ucc4b3fz.auth0.com',
+        client_id: 'bcWLCh1waioVp2T7TS4jEtbPvqWhZdg8'
       }
     }
-  }
+  },
 }
