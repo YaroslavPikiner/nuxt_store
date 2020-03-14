@@ -11,7 +11,7 @@
             <span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
-            <nuxt-link active-class="active" to="/articles" class="nav-link navbar-link">
+            <nuxt-link v-if="$auth.loggedIn" active-class="active" to="/articles" class="nav-link navbar-link">
               Articles
             </nuxt-link>
           </li>
@@ -23,8 +23,8 @@
         </ul>
       </div>
       <div>
-        <a v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</a>
-        <a v-else @click="$auth.loginWith('auth0')">Sign In</a>
+        <button class="navbar-link" v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</button>
+        <button class="navbar-link" v-else @click="$auth.loginWith('auth0')">Sign In</button>
       </div>
     </nav>
   </div>
