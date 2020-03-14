@@ -52,12 +52,14 @@ export default {
 
 section {
   margin-top: 60px;
+
 }
 
 .card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0 250px;
 }
 .card-img {
   transition: all 0.3s;

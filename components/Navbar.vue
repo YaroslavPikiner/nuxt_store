@@ -89,8 +89,7 @@ nuxt-link {
 }
 
 .navbar-link:hover {
-  background-color: #000;
-  color: #DFE0DF;
+  text-decoration: underline;
   border-radius: 5px;
 }
 

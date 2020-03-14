@@ -1,6 +1,6 @@
 <template>
-  <div class="container home">
-    <h1>Hello {{ $auth.user.name }} </h1>
+  <div class="container-fluid home">
+    <h1>Hello {{ $auth.user.name }}, welcome to my site! </h1>
   </div>
 </template>
 
@@ -12,8 +12,10 @@ export default {
 }
 </script>
 
-<style>
+<style >
   .home {
-    margin-top: 60px;
+    width: 100%;
+    height: 1000px;
+    background-color: #000;
   }
 </style>

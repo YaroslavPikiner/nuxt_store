@@ -16,4 +16,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+ * {
+   font-family: Oswald, sans-serif;
+ }
 </style>
