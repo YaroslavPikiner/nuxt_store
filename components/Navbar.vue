@@ -22,7 +22,9 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="user__info">
+          <img class="user__image" src="https://img.icons8.com/officel/2x/user.png" alt="user_img">
+        {{ $auth.user.name }}
         <button class="navbar-link" v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</button>
         <button class="navbar-link" v-else @click="$auth.loginWith('auth0')">Sign In</button>
       </div>
@@ -41,6 +43,20 @@ export default {
 </script>
 
 <style>
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+}
 
 .section-nav {
   width: 100%;
@@ -67,6 +83,15 @@ nuxt-link {
 .navbar-link {
   font-size: 20px;
   color:#000;
+  font-weight: 600;
+  transition: all .3s;
+  padding: 5px;
+}
+
+.navbar-link:hover {
+  background-color: #000;
+  color: #DFE0DF;
+  border-radius: 5px;
 }
 
   nav {
