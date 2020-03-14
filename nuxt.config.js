@@ -34,14 +34,15 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
   ** Build configuration
@@ -52,5 +53,19 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+
+  auth: {
+    redirect: {
+      login: '/', // redirect user when not connected
+      callback: '/auth/signed-in'
+    },
+    strategies: {
+      local: false,
+      auth0: {
+        domain: 'dev-ucc4b3fz.auth0.com',
+        client_id: 'bcWLCh1waioVp2T7TS4jEtbPvqWhZdg8'
+      }
+    }
+  },
 }

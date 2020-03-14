@@ -2,7 +2,9 @@
   <section class="container id-article">
     <img :src="images.url" alt="">
     <h1> {{ articles.title }} </h1>
-    <p class="id-body"> {{ articles.body }} </p>
+    <p class="id-body">
+      {{ articles.body }}
+    </p>
   </section>
 </template>
 

@@ -11,33 +11,52 @@
             <span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
-            <nuxt-link active-class="active" to="/articles" class="nav-link navbar-link">
+            <nuxt-link v-if="$auth.loggedIn" active-class="active" to="/articles" class="nav-link navbar-link">
               Articles
             </nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link active-class="active" to="/cards" class="nav-link navbar-link">
+            <nuxt-link v-if="$auth.loggedIn" active-class="active" to="/cards" class="nav-link navbar-link">
               Cards
             </nuxt-link>
           </li>
         </ul>
       </div>
-      <nuxt-link
-        active-class="active"
-        to="/login"
-        class="navbar-link nav-link font-weight-bold"
-      >
-        Login
-      </nuxt-link>
+      <div class="user__info">
+          <img class="user__image" v-if="$auth.loggedIn" src="https://img.icons8.com/officel/2x/user.png" alt="user_img">
+        <span v-if="$auth.loggedIn" > {{ $auth.user.name }} </span>
+        <button class="navbar-link" v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</button>
+        <button class="navbar-link" v-else @click="$auth.loginWith('auth0')">Sign In</button>
+      </div>
     </nav>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    logIn () {
+      this.$auth.loginWith('auth0')
+    }
+  }
+}
 </script>
 
 <style>
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+}
 
 .section-nav {
   width: 100%;
@@ -64,6 +83,15 @@ nuxt-link {
 .navbar-link {
   font-size: 20px;
   color:#000;
+  font-weight: 600;
+  transition: all .3s;
+  padding: 5px;
+}
+
+.navbar-link:hover {
+  background-color: #000;
+  color: #DFE0DF;
+  border-radius: 5px;
 }
 
   nav {
