@@ -23,8 +23,8 @@
         </ul>
       </div>
       <div class="user__info">
-          <img class="user__image" src="https://img.icons8.com/officel/2x/user.png" alt="user_img">
-        {{ $auth.user.name }}
+          <img class="user__image" v-if="$auth.loggedIn" src="https://img.icons8.com/officel/2x/user.png" alt="user_img">
+        <span v-if="$auth.loggedIn" > {{ $auth.user.name }} </span>
         <button class="navbar-link" v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</button>
         <button class="navbar-link" v-else @click="$auth.loginWith('auth0')">Sign In</button>
       </div>
